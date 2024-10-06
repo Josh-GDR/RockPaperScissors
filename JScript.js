@@ -5,6 +5,7 @@ const maxRounds = 5;
 const result = document.createElement("p");
 const playerInfo = document.createElement("p");
 const computerInfo = document.createElement("p");
+const computerOption = document.querySelector("#computerOption");
 
 function getComputerInput() {
     return 1 + Math.floor(Math.random() * 100)%3;
@@ -13,7 +14,6 @@ function getComputerInput() {
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach(button => {
     button.addEventListener(("click"), () => {
-        console.log(+button.id);
         updateFields(+button.id);
     })
 })
@@ -39,31 +39,44 @@ function initResultDiv() {
     result.setAttribute("id", "resultText");
     result.textContent = "-- waiting to start game --";
     content.appendChild(result);
+
+    computerOption.textContent = null;
 }
 initResultDiv();
 
 function playMatch(playerTurn, computerTurn) {
-    console.log(playerTurn + " - " + computerTurn);
+    switch (computerTurn) {
+        case 1:
+            computerOption.textContent = "Rock"
+        break;
+        case 2:
+            computerOption.textContent = "Paper"
+        break;
+        case 3:
+            computerOption.textContent = "Scissor"
+        break;
+    }
+
     if (playerTurn == computerTurn) {
         return "It was a draw"
     }
 
-    if (playerTurn == 3 && computerTurn == 1) {
+    if (playerTurn == 1 && computerTurn == 3) {
         playerWinCount++;
         return "Player won";
     }
 
-    if (computerTurn == 3 && playerTurn == 1) {
+    if (computerTurn == 1 && playerTurn == 3) {
         computerWinCount++;
         return "Computer won";
     }
 
-    if (playerTurn < computerTurn) {
+    if (playerTurn > computerTurn) {
         playerWinCount++;
         return "Player won";
     }
 
-    if (computerTurn < playerTurn) {
+    if (computerTurn > playerTurn) {
         computerWinCount++;
         return "Computer won";
     }
@@ -97,6 +110,7 @@ function updateFields(playerChoice) {
 function restartFields() {
     playerWinCount = 0;
     computerWinCount = 0;
+    computerOption.textContent = null;
     playerInfo.textContent = getPlayerInfo();
     computerInfo.textContent = getComputerInfo();
     result.textContent = "-- waiting to start game --";

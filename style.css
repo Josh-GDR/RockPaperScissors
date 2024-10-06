@@ -34,15 +34,10 @@ main {
 }
 
 #playerChoice {
-    flex-grow: 2;
     display: flex;
     align-items: center;
     flex-direction: column;
     flex: auto;
-}
-
-#choiceImg {
-    flex-grow: 2;
 }
 
 #playerOptions {
@@ -56,6 +51,18 @@ main {
 #playerOptions .choice {
     width: 125px;
     height: 125px;
+}
+
+#computerChoice {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#computerOption {
+    font-size: 24px;
+    font-weight: 900;
 }
 
 main div {
