@@ -1,14 +1,16 @@
 let computerWinCount = 0;
 let playerWinCount = 0;
+let playerChoice = 0;
 const maxRounds = 5;
 
-function getBasicInfo(turn) {
-    return `Turn # ${turn}\nMatches won by:\nPlayer: ${playerWinCount}   Computer: ${computerWinCount}`;
-}
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach(button => {
+    button.addEventListener(("click"), () => {
+        playerChoice = +button.id
 
-function getPlayerInput(turn) {
-    return +prompt(getBasicInfo(turn) + "\nChoose one of the next options (1-3):\n1. Rock\n2. Paper\n3. Scissor");
-}
+        playMatch(playerChoice, getComputerInput());
+    })
+})
 
 function getComputerInput() {
     return Math.floor(Math.random() * 100)%3;
@@ -41,20 +43,10 @@ function playMatch(playerTurn, computerTurn) {
 
 }
 
-const main = (val) => {
-    if (val < maxRounds) 
-    {
-        do {
-            playerAns = getPlayerInput(val + 1);
-        } while (playerAns < 1 || playerAns > 3)
-        computerAns = getComputerInput();
-        alert(playMatch(playerAns, computerAns));
-        main(val + 1);
-    }
-
-    if (val == 0) {
-        alert(getBasicInfo("-- game ended --") + `   Draws: ${maxRounds - (computerWinCount + playerWinCount)}`);
-    }
+function getBasicInfo(turn) {
+    return `Turn # ${turn}\nMatches won by:\nPlayer: ${playerWinCount}   Computer: ${computerWinCount}`;
 }
 
-main(0);
+function getPlayerInput(turn) {
+    return +prompt(getBasicInfo(turn) + "\nChoose one of the next options (1-3):\n1. Rock\n2. Paper\n3. Scissor");
+}

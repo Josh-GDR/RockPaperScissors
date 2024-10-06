@@ -1,5 +1,65 @@
 body {
     margin: 0;
-    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     background-color: steelblue;
+}
+
+footer,
+header {
+    padding: 10px;
+    background-color: rgb(64, 21, 133);
+
+    text-align: center;
+}
+
+#roundIndicator,
+footer h3 {
+    color: rgb(255, 189, 189);
+    font-weight: 900px;
+    font-size: 32px;
+    margin-bottom: 0px;
+}
+
+footer p {
+    color: rgb(255, 189, 189);
+    font-size: 16px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+#playerChoice {
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: auto;
+}
+
+#choiceImg {
+    flex-grow: 2;
+    border: 2px solid black;
+}
+
+#playerOptions {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: auto;
+    gap: 15px;
+}
+
+#playerOptions .choice {
+    width: 100px;
+    height: 100px;
+}
+
+main div {
+    flex: auto
 }
