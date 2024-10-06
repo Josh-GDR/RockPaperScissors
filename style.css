@@ -58,8 +58,19 @@ main {
 #playerOptions .choice {
     width: 100px;
     height: 100px;
+    font-size: 16px;
 }
 
 main div {
     flex: auto
+}
+
+#results
+    {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(34, 21, 21);
+    border: 2px solid black;
+    flex: 0 1 auto;
 }
