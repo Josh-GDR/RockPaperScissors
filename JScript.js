@@ -1,4 +1,11 @@
+let computerWinCount = 0;
+let playerWinCount = 0;
+const maxRounds = 5;
 
-const start = () => prompt("Hello")
+const main = (val) => {
+    if (val < maxRounds) 
+    {
+    }
+}
 
-start();
+main(0);
